@@ -1,17 +1,52 @@
 ### Get products
-GET http://localhost:3000/api/v1/products
+GET http://localhost:3000/api/v1/products?categories=653d1a1e092a207a4b3c6e26,653d19c1092a207a4b3c6e21&count=3
+
+### Get a single products
+GET http://localhost:3000/api/v1/products/653d2619d310b52e946d4161
 
 ### Post/ Create a product
 POST http://localhost:3000/api/v1/products
 Content-Type: application/json
 
 {
-    "name": "test router",
+    "name": "featured product new category 2",
+    "description": "req.body.description",
+    "category": "653d1a1e092a207a4b3c6e26",
     "image": "String.jpg",
-    "countInStock": 494
+    "countInStock": 4,
+    "brand": "req.body.brand",
+    "numReviews": 0,
+    "isFeatured": true
 }
 
-###----------------------------------- Get category
+### Update a product
+PUT http://localhost:3000/api/v1/products/653d2619d310b52e946d4161
+Content-Type: application/json
+
+{
+    "name": "featured product new category 2",
+    "description": "req.body.description",
+    "category": "653d1a1e092a207a4b3c6e26",
+    "image": "String.jpg",
+    "countInStock": 4,
+    "brand": "req.body.brand",
+    "numReviews": 0,
+    "isFeatured": true
+}
+
+### Delete products
+DELETE http://localhost:3000/api/v1/products/653c1bf6392761e461069fb1
+
+### Get product count
+GET http://localhost:3000/api/v1/products/get/count
+
+### Get featured product
+GET http://localhost:3000/api/v1/products/get/featured?count
+
+
+
+###=================================== category =======================================
+### Get category
 GET http://localhost:3000/api/v1/categories
 
 

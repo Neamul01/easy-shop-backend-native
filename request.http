@@ -1,0 +1,43 @@
+### Get products
+GET http://localhost:3000/api/v1/products
+
+### Post/ Create a product
+POST http://localhost:3000/api/v1/products
+Content-Type: application/json
+
+{
+    "name": "test router",
+    "image": "String.jpg",
+    "countInStock": 494
+}
+
+###----------------------------------- Get category
+GET http://localhost:3000/api/v1/categories
+
+
+### get category by id
+GET http://localhost:3000/api/v1/categories/653d19c1092a207a4b3c6e21
+
+### Post/ Create a category
+POST http://localhost:3000/api/v1/categories
+Content-Type: application/json
+
+{
+    "name": "computer deltete test",
+    "icon": "computer",
+    "color": "#494"
+}
+
+### Update a category
+PUT http://localhost:3000/api/v1/categories/653d19c1092a207a4b3c6e21
+Content-Type: application/json
+
+{
+    
+    "icon": "computer updated new",
+    "color": "#493444"
+}
+
+
+### Delete a category
+DELETE  http://localhost:3000/api/v1/categories/653d1b3

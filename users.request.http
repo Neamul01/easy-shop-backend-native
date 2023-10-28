@@ -1,0 +1,21 @@
+### get all users
+GET http://localhost:3000/api/v1/users
+
+### create a user
+POST http://localhost:3000/api/v1/users
+Content-Type: application/json
+
+{
+    "name": "user 2",
+    "email": "req.body.email",
+    "passwordHash": "req.body.passwordHash",
+    "phone": "req.body.phone",
+    "isAdmin": false,
+    "apartment": "req.body.apartment",
+    "zip": "req.body.zip",
+    "city": "req.body.city",
+    "country": "req.body.country"
+}
+
+### get a users
+GET http://localhost:3000/api/v1/users/653d60a590460f549fb863ab

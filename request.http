@@ -1,6 +1,7 @@
 ### Get products
 GET http://localhost:3000/api/v1/products?categories=653d1a1e092a207a4b3c6e26,653d19c1092a207a4b3c6e21&count=3
 
+
 ### Get a single products
 GET http://localhost:3000/api/v1/products/653d2619d310b52e946d4161
 

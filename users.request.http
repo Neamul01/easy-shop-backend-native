@@ -6,8 +6,8 @@ POST http://localhost:3000/api/v1/users
 Content-Type: application/json
 
 {
-    "name": "user 2",
-    "email": "req.body.email",
+    "name": "user 3",
+    "email": "abc@gmail.com",
     "passwordHash": "req.body.passwordHash",
     "phone": "req.body.phone",
     "isAdmin": false,
@@ -19,3 +19,12 @@ Content-Type: application/json
 
 ### get a users
 GET http://localhost:3000/api/v1/users/653d60a590460f549fb863ab
+
+### login a users
+POST http://localhost:3000/api/v1/users/login
+Content-Type: application/json
+
+{
+    "email": "abc@gmail.com",
+    "password": "req.body.passwordHash"
+}

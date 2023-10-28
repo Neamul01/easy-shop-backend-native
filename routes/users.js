@@ -53,6 +53,7 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign(
       {
         userId: user.id,
+        isAdmin: user.isAdmin,
       },
       process.env.secret,
       { expiresIn: "1d" }
@@ -81,6 +82,33 @@ router.post("/register", async (req, res) => {
     return res.status(404).send("The user cannot be created");
   }
   res.send(user);
+});
+
+router.delete("/:id", (req, res) => {
+  User.findByIdAndRemove(req.params.id)
+    .then((user) => {
+      if (user) {
+        return res
+          .status(200)
+          .json({ success: true, message: "user deleted Successfully" });
+      } else {
+        return res
+          .status(404)
+          .json({ success: false, message: "user not found" });
+      }
+    })
+    .catch((err) => {
+      return res.status(400).json({ success: false, error: err });
+    });
+});
+
+router.get(`/get/count`, async (req, res) => {
+  const userCount = await User.countDocuments();
+
+  if (!userCount) {
+    res.status(500).json({ success: false });
+  }
+  res.send({ userCount: userCount });
 });
 
 module.exports = router;

@@ -7,10 +7,10 @@ Content-Type: application/json
 
 {
     "name": "user 3",
-    "email": "abc@gmail.com",
+    "email": "abcd@gmail.com",
     "passwordHash": "req.body.passwordHash",
     "phone": "req.body.phone",
-    "isAdmin": false,
+    "isAdmin": true,
     "apartment": "req.body.apartment",
     "zip": "req.body.zip",
     "city": "req.body.city",
@@ -19,12 +19,13 @@ Content-Type: application/json
 
 ### get a users
 GET http://localhost:3000/api/v1/users/653d60a590460f549fb863ab
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTNkNzYxMjdlOTQ4NTExZGE1YTRkNDIiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2OTg1Mjc3NzcsImV4cCI6MTY5ODYxNDE3N30.DsuGBwubsIeJJEEyQXH79_hSitKlaSwSlnXCwutoDeQ
 
 ### login a users
 POST http://localhost:3000/api/v1/users/login
 Content-Type: application/json
 
 {
-    "email": "abc@gmail.com",
+    "email": "abcd@gmail.com",
     "password": "req.body.passwordHash"
 }

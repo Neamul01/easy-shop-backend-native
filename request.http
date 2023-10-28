@@ -8,9 +8,10 @@ GET http://localhost:3000/api/v1/products/653d2619d310b52e946d4161
 ### Post/ Create a product
 POST http://localhost:3000/api/v1/products
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTNkNzYxMjdlOTQ4NTExZGE1YTRkNDIiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2OTg1Mjc5OTAsImV4cCI6MTY5ODYxNDM5MH0.bv5yUBupsaOeAKBrOWhHDehJU6TLyCHikurREVSQpE4
 
 {
-    "name": "featured product new category 2",
+    "name": "featured product new category 3",
     "description": "req.body.description",
     "category": "653d1a1e092a207a4b3c6e26",
     "image": "String.jpg",
@@ -23,6 +24,7 @@ Content-Type: application/json
 ### Update a product
 PUT http://localhost:3000/api/v1/products/653d2619d310b52e946d4161
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTNkNzYxMjdlOTQ4NTExZGE1YTRkNDIiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2OTg1Mjc5OTAsImV4cCI6MTY5ODYxNDM5MH0.bv5yUBupsaOeAKBrOWhHDehJU6TLyCHikurREVSQpE4
 
 {
     "name": "featured product new category 2",

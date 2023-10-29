@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 
+// ---------- get all categories
 router.get(`/`, async (req, res) => {
   const categoryList = await Category.find();
 
@@ -12,6 +13,7 @@ router.get(`/`, async (req, res) => {
   res.status(200).send(categoryList);
 });
 
+// ---------- get a specific category
 router.get("/:id", async (req, res) => {
   const category = await Category.findById(req.params.id);
 
@@ -21,6 +23,7 @@ router.get("/:id", async (req, res) => {
   res.status(200).send(category);
 });
 
+// ---------- create a category
 router.post("/", async (req, res) => {
   let category = new Category({
     name: req.body.name,
@@ -35,6 +38,7 @@ router.post("/", async (req, res) => {
   res.send(category);
 });
 
+// --------- update a category
 router.put("/:id", async (req, res) => {
   if (!mongoose.isValidObjectId(req.params.id)) {
     return res.status(400).send("Invalid Product Id ");
@@ -56,6 +60,7 @@ router.put("/:id", async (req, res) => {
   res.send(category);
 });
 
+// --------- delete a category
 router.delete("/:id", (req, res) => {
   Category.findByIdAndRemove(req.params.id)
     .then((category) => {

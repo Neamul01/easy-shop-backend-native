@@ -4,6 +4,7 @@ const { Category } = require("../models/category");
 const router = express.Router();
 const mongoose = require("mongoose");
 
+// --------- get all products //-------{ query= count: string, categories:[] }
 router.get(`/`, async (req, res) => {
   try {
     let count = parseInt(req.query.count) || 10;
@@ -29,6 +30,7 @@ router.get(`/`, async (req, res) => {
   }
 });
 
+// ---------- get a specific product
 router.get(`/:id`, async (req, res) => {
   const product = await Product.findById(req.params.id).populate("category");
 
@@ -38,6 +40,7 @@ router.get(`/:id`, async (req, res) => {
   res.send(product);
 });
 
+// ------------ create a product
 router.post(`/`, async (req, res) => {
   const category = await Category.findById(req.body.category);
   if (!category) return res.status(400).send("Invalid Category");
@@ -63,6 +66,7 @@ router.post(`/`, async (req, res) => {
   res.send(product);
 });
 
+// ------------ update a product
 router.put("/:id", async (req, res) => {
   if (!mongoose.isValidObjectId(req.params.id)) {
     return res.status(400).send("Invalid Product Id ");
@@ -95,6 +99,7 @@ router.put("/:id", async (req, res) => {
   res.send(product);
 });
 
+// ---------- delete a product
 router.delete("/:id", (req, res) => {
   Product.findByIdAndRemove(req.params.id)
     .then((product) => {
@@ -113,6 +118,7 @@ router.delete("/:id", (req, res) => {
     });
 });
 
+// ----------- get count of products
 router.get(`/get/count`, async (req, res) => {
   const productCount = await Product.countDocuments();
 
@@ -122,6 +128,7 @@ router.get(`/get/count`, async (req, res) => {
   res.send({ productCount: productCount });
 });
 
+// ------------ get only featured products //----{params count},
 router.get("/get/featured", async (req, res) => {
   let count = parseInt(req.query.count) || 10;
 
@@ -132,22 +139,6 @@ router.get("/get/featured", async (req, res) => {
       return res
         .status(404)
         .json({ success: false, message: "No featured products found" });
-    }
-
-    res.status(200).json(products);
-  } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
-  }
-});
-
-router.get("/get/category", async (req, res) => {
-  try {
-    const products = await Product.find(filter).limit(count);
-
-    if (products.length === 0) {
-      return res
-        .status(404)
-        .json({ success: false, message: "No products found" });
     }
 
     res.status(200).json(products);

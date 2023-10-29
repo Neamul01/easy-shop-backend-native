@@ -4,6 +4,7 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+// ------------- get all users
 router.get(`/`, async (req, res) => {
   const userList = await User.find().select("-passwordHash");
 
@@ -22,6 +23,7 @@ router.get("/:id", async (req, res) => {
   res.status(200).send(user);
 });
 
+// ----------- create a user
 router.post("/", async (req, res) => {
   let user = new User({
     name: req.body.name,
@@ -42,6 +44,7 @@ router.post("/", async (req, res) => {
   res.send(user);
 });
 
+// ---------- user login
 router.post("/login", async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
 
@@ -64,6 +67,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// -------- user register
 router.post("/register", async (req, res) => {
   let user = new User({
     name: req.body.name,
@@ -84,6 +88,7 @@ router.post("/register", async (req, res) => {
   res.send(user);
 });
 
+// ---------- delete a user
 router.delete("/:id", (req, res) => {
   User.findByIdAndRemove(req.params.id)
     .then((user) => {
@@ -102,6 +107,7 @@ router.delete("/:id", (req, res) => {
     });
 });
 
+// ------------- get count of users
 router.get(`/get/count`, async (req, res) => {
   const userCount = await User.countDocuments();
 

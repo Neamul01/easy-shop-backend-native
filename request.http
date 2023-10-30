@@ -1,9 +1,10 @@
 ### Get products
-GET http://localhost:3000/api/v1/products?categories=653d1a1e092a207a4b3c6e26,653d19c1092a207a4b3c6e21&count=3
+# GET http://localhost:3000/api/v1/products?categories=653d1a1e092a207a4b3c6e26,653d19c1092a207a4b3c6e21&count=3
+GET http://localhost:3000/api/v1/products?count=20
 
 
 ### Get a single products
-GET http://localhost:3000/api/v1/products/653d2602d16e03c3e5989920
+GET http://localhost:3000/api/v1/products/653fcc01d8ef27cae045ddaf
 
 ### Post/ Create a product
 POST http://localhost:3000/api/v1/products

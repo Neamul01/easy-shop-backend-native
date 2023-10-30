@@ -13,6 +13,7 @@ app.options("*", cors());
 // middleware
 app.use(express.json());
 app.use(morgan("tiny"));
+app.use("/public/uploads", express.static("public/uploads"));
 app.use(authJwt());
 app.use(errorHandler);
 

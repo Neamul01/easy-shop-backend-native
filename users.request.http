@@ -8,7 +8,7 @@ Content-Type: application/json
 
 {
     "name": "user 3",
-    "email": "abcd@gmail.com",
+    "email": "abcde@gmail.com",
     "passwordHash": "passwordHash",
     "phone": "phone",
     "isAdmin": true,
@@ -22,13 +22,30 @@ Content-Type: application/json
 GET http://localhost:3000/api/v1/users/653d60a590460f549fb863ab
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTNkNzYxMjdlOTQ4NTExZGE1YTRkNDIiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2OTg2MDgxMDUsImV4cCI6MTY5ODY5NDUwNX0.wToYoYcQf5nQdFMUnEgMrTxhQBWibh_fPKnMDbQYjzE
 
+### register a users
+POST http://localhost:3000/api/v1/users/register
+Content-Type: application/json
+
+{
+    "email": "abcde@gmail.com",
+    "password": "passwordHash",
+    "name": "user 3",
+    "passwordHash": "password",
+    "phone": "phone",
+    "isAdmin": true,
+    "apartment": "apartment",
+    "zip": "zip",
+    "city": "city",
+    "country": "country"
+}
+
 ### login a users
 POST http://localhost:3000/api/v1/users/login
 Content-Type: application/json
 
 {
-    "email": "abcd@gmail.com",
-    "password": "passwordHash"
+    "email": "abcde@gmail.com",
+    "password": "password"
 }
 
 

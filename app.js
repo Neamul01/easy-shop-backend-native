@@ -30,6 +30,7 @@ app.use(`${api}/products`, productsRoutes);
 app.use(`${api}/categories`, categoriesRoutes);
 app.use(`${api}/orders`, ordersRoutes);
 
+app.get("/", (req, res) => res.send("Home Page Route"));
 mongoose
   .connect(process.env.CONNECTION_STR)
   .then(() => console.log("database connected"))
